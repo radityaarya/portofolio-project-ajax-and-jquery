@@ -15,66 +15,82 @@
 
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col s12 l6">
-          <div class="card white darken-1">
-            <div class="card-content">
-              <h3>Simple Simon Says</h3>
-              <button class="btn waves-effect red">Click Me</button>
+      <div class="thebox">
+        <div class="row">
+          <div class="col s12 l6">
+            <div class="card white darken-1">
+              <div class="card-content">
+                <h3>Simple Simon Says</h3>
+                <button id="button" class="btn waves-effect red">Click Me</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col s12 l6">
+        <div class="row">
+          <div class="col s12 l6">
 
-              <div class="row">
-                <div class="col s4 l4">
-                  <div class="box"></div>
+                <div class="row">
+                  <div class="col s4 l4">
+                    <div id="1" class="box"></div>
+                  </div>
+                  <div class="col s4 l4">
+                    <div id="2" class="box"></div>
+                  </div>
+                  <div class="col s4 l4">
+                    <div id="3" class="box"></div>
+                  </div>
                 </div>
-                <div class="col s4 l4">
-                  <div class="box"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12 l6">
+
+                <div class="row">
+                  <div class="col s4 l4">
+                    <div id="4" class="box"></div>
+                  </div>
+                  <div class="col s4 l4">
+                    <div id="5" class="box"></div>
+                  </div>
+                  <div class="col s4 l4">
+                    <div id="6" class="box"></div>
+                  </div>
                 </div>
-                <div class="col s4 l4">
-                  <div class="box"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12 l6">
+
+                <div class="row">
+                  <div class="col s4 l4">
+                    <div id="7" class="box"></div>
+                  </div>
+                  <div class="col s4 l4">
+                    <div id="8" class="box"></div>
+                  </div>
+                  <div class="col s4 l4">
+                    <div id="9" class="box"></div>
+                  </div>
                 </div>
-              </div>
+          </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col s12 l6">
-
-              <div class="row">
-                <div class="col s4 l4">
-                  <div class="box"></div>
-                </div>
-                <div class="col s4 l4">
-                  <div class="box"></div>
-                </div>
-                <div class="col s4 l4">
-                  <div class="box"></div>
-                </div>
-              </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col s12 l6">
-
-              <div class="row">
-                <div class="col s4 l4">
-                  <div class="box"></div>
-                </div>
-                <div class="col s4 l4">
-                  <div class="box"></div>
-                </div>
-                <div class="col s4 l4">
-                  <div class="box"></div>
-                </div>
-              </div>
-        </div>
-      </div>
     </div>
+
+    <script>
+    $('#button').click(function(){
+      $.ajax({
+        url: 'http://localhost:3000/colors',
+        type: 'GET',
+        success: function(data){
+          console.log(data);
+          $(`#${data.index}`).css("background-color", `${data.color}`)
+        }
+      })
+    })
+    </script>
   </body>
 </html>
